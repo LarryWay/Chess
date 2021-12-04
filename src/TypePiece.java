@@ -19,6 +19,9 @@ public class TypePiece {
     }
 
     public void assignSprite(){
+
+
+
         if(value.getClass() == Pawn.class){
             Pawn temp = (Pawn) value;
             sprite = temp.pieceSprite;
@@ -81,7 +84,7 @@ public class TypePiece {
         }
         if(value.getClass() == King.class){
             King king = (King) value;
-            return king.availableMoves();
+            return king.availableEmptySpots();
         }
         return null;
     }
@@ -98,6 +101,11 @@ public class TypePiece {
                 }
             }
 
+
+            //Error here fix it
+
+
+            System.out.println(spots[x][0] + " " + spots[x][1]);
             vars.panelButtons[spots[x][0]][spots[x][1]].setIcon(sprites.spotDot);
 
         }

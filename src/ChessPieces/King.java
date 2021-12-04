@@ -42,19 +42,24 @@ public class King extends BasePiece implements DefaultMethods{
 
                 try{
                     boolean checkException = boolBoard[xPredict][yPredict];
-                    if(!boolBoard[xPredict][yPredict]){
-                        returnValLength++;
-                        list.add(x);
-                        list.add(y);
-                    }
+                    returnValLength++;
+                    //System.out.println(xPredict + " " + yPredict);
+                    list.add(xPredict);
+                    list.add(yPredict);
                 }catch(Exception e){
-
+                    //System.out.println("Out of bounds");
                 }
             }
         }
+        returnVal = new int[list.size()][2];
+        for(int x = 0 ; x < list.size() / 2; x++){
+            returnVal[x][0] = (list.get(x * 2));
+            returnVal[x][1] = (list.get(x * 2 + 1));
+            System.out.println((int) list.get(x * 2) + " " + (int) list.get(x * 2 + 1));
+            System.out.println(returnVal[x][0] + " - " + returnVal[x][1]);
+        }
 
-
-        return convertLinkedList(list);
+        return returnVal;
     }
 
     @Override
