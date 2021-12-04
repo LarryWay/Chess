@@ -162,8 +162,8 @@ public class Board {
         vars.piecesList[7][5] = new TypePiece(new Bishop(true,7,2, vars.boolBoard), vars, sprites);
         vars.piecesList[0][2] = new TypePiece(new Bishop(false,7,2, vars.boolBoard), vars, sprites);
         vars.piecesList[0][5] = new TypePiece(new Bishop(false,7,2, vars.boolBoard), vars, sprites);
-
-
+        vars.piecesList[0][4] = new TypePiece(new King(false, 0, 4, vars.boolBoard), vars, sprites);
+        vars.piecesList[7][4] = new TypePiece(new King(true, 7, 4, vars.boolBoard), vars, sprites);
 
     }
 

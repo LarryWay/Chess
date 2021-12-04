@@ -34,8 +34,11 @@ public class TypePiece {
             sprite = temp.pieceSprite;
             isWhite = temp.isWhite;
             hasSprite = true;
-        }if(value.getClass() == Queen.class){
-
+        }if(value.getClass() == King.class){
+            King temp = (King) value;
+            sprite = temp.pieceSprite;
+            isWhite = temp.isWhite;
+            hasSprite = true;
         }
     }
 
@@ -55,6 +58,11 @@ public class TypePiece {
             temp.xPos = x;
             temp.yPos = y;
         }
+        if (value.getClass() == King.class){
+            King temp = (King) value;
+            temp.xPos = x;
+            temp.yPos = y;
+        }
     }
 
     public int[][] availableSpots(){
@@ -70,6 +78,10 @@ public class TypePiece {
         if (value.getClass() == Bishop.class){
             Bishop bishop = (Bishop) value;
             return bishop.availableEmptySpots();
+        }
+        if(value.getClass() == King.class){
+            King king = (King) value;
+            return king.availableMoves();
         }
         return null;
     }
