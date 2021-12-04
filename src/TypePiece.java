@@ -20,13 +20,28 @@ public class TypePiece {
 
     public void assignSprite(){
 
+        /*
+        BasePiece temp = (BasePiece) value;
+        sprite = temp.pieceSprite;
+        isWhite = temp.isWhite;
+        hasSprite = true;
+
+         */
 
 
         if(value.getClass() == Pawn.class){
+
+            BasePiece temp = (BasePiece) value;
+            sprite = temp.pieceSprite;
+            isWhite = temp.isWhite;
+            hasSprite = true;
+            /*
             Pawn temp = (Pawn) value;
             sprite = temp.pieceSprite;
             isWhite = temp.isWhite;
             hasSprite = true;
+
+             */
         }if(value.getClass() == Knight.class){
             Knight temp = (Knight) value;
             sprite = temp.pieceSprite;
@@ -43,13 +58,25 @@ public class TypePiece {
             isWhite = temp.isWhite;
             hasSprite = true;
         }
+
     }
 
     public void updatePosition(int x, int y){
+
         if(value.getClass() == Pawn.class){
+
+
+            BasePiece temp = (BasePiece) value;
+            temp.xPos = x;
+            temp.yPos = y;
+
+
+            /*
             Pawn temp = (Pawn) value;
             temp.xPos = x;
             temp.yPos = y;
+
+             */
         }
         if (value.getClass() == Knight.class){
             Knight temp = (Knight) value;
