@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import javax.swing.ImageIcon;
 import javax.swing.Icon;
 
-public class BasePiece{
+public abstract class BasePiece implements DefaultMethods{
 
     Sprites sprites = new Sprites();
     public Icon pieceSprite;
@@ -17,8 +17,8 @@ public class BasePiece{
         this.isWhite = isWhite;
     }
 
-    public int[][] convertLinkedList(LinkedList list){
-        int[][] returnVal = new int[list.size()][2];
+    public int[][] convertLinkedList(LinkedList<Integer> list){
+        int[][] returnVal = new int[list.size() / 2][2];
         for(int x = 0 ; x < list.size() / 2; x++){
             returnVal[x][0] = (int) (list.get(x * 2));
             returnVal[x][1] = (int) (list.get(x * 2 + 1));
@@ -26,9 +26,8 @@ public class BasePiece{
         }
 
         return returnVal;
-
-
-
     }
+
+
 
 }

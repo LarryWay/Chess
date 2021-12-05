@@ -4,14 +4,14 @@ import java.lang.Class;
 
 public class TypePiece {
 
-    Object value;
+    BasePiece value;
     Vars vars;
     Sprites sprites;
     Icon sprite;
     boolean hasSprite = false;
     boolean isWhite;
 
-    public TypePiece(Object obj, Vars vars, Sprites sprites){
+    public TypePiece(BasePiece obj, Vars vars, Sprites sprites){
         this.value = obj;
         this.vars = vars;
         this.sprites = sprites;
@@ -19,122 +19,36 @@ public class TypePiece {
     }
 
     public void assignSprite(){
-
-        /*
-        BasePiece temp = (BasePiece) value;
-        sprite = temp.pieceSprite;
-        isWhite = temp.isWhite;
+        sprite = value.pieceSprite;
+        isWhite = value.isWhite;
         hasSprite = true;
-
-         */
-
-
-        if(value.getClass() == Pawn.class){
-
-            BasePiece temp = (BasePiece) value;
-            sprite = temp.pieceSprite;
-            isWhite = temp.isWhite;
-            hasSprite = true;
-            /*
-            Pawn temp = (Pawn) value;
-            sprite = temp.pieceSprite;
-            isWhite = temp.isWhite;
-            hasSprite = true;
-
-             */
-        }if(value.getClass() == Knight.class){
-            Knight temp = (Knight) value;
-            sprite = temp.pieceSprite;
-            isWhite = temp.isWhite;
-            hasSprite = true;
-        }if(value.getClass() == Bishop.class){
-            Bishop temp = (Bishop) value;
-            sprite = temp.pieceSprite;
-            isWhite = temp.isWhite;
-            hasSprite = true;
-        }if(value.getClass() == King.class){
-            King temp = (King) value;
-            sprite = temp.pieceSprite;
-            isWhite = temp.isWhite;
-            hasSprite = true;
-        }
 
     }
 
     public void updatePosition(int x, int y){
 
-        if(value.getClass() == Pawn.class){
-
-
-            BasePiece temp = (BasePiece) value;
-            temp.xPos = x;
-            temp.yPos = y;
-
-
-            /*
-            Pawn temp = (Pawn) value;
-            temp.xPos = x;
-            temp.yPos = y;
-
-             */
-        }
-        if (value.getClass() == Knight.class){
-            Knight temp = (Knight) value;
-            temp.xPos = x;
-            temp.yPos = y;
-        }
-        if(value.getClass() == Bishop.class){
-            Bishop temp = (Bishop) value;
-            temp.xPos = x;
-            temp.yPos = y;
-        }
-        if (value.getClass() == King.class){
-            King temp = (King) value;
-            temp.xPos = x;
-            temp.yPos = y;
-        }
+        value.xPos = x;
+        value.yPos = y;
     }
 
     public int[][] availableSpots(){
 
-        if (value.getClass() == Pawn.class){
-            Pawn pawn = (Pawn) value;
-            return pawn.availableMoves();
-        }
-        if(value.getClass() == Knight.class){
-            Knight knight = (Knight) value;
-            return knight.availableEmptySpots();
-        }
-        if (value.getClass() == Bishop.class){
-            Bishop bishop = (Bishop) value;
-            return bishop.availableEmptySpots();
-        }
-        if(value.getClass() == King.class){
-            King king = (King) value;
-            return king.availableEmptySpots();
-        }
-        return null;
+        return value.availableMoves();
+
     }
 
 
     public void displayAvailableSpots(){
-        int[][] spots = availableSpots();
+        int[][] spots = value.availableMoves();
 
         for(int x = 0 ; x < spots.length ; x++){
-
             if (vars.boolBoard[spots[x][0]][spots[x][1]]){
                 if(vars.piecesList[spots[x][0]][spots[x][1]].isWhite == isWhite){
                     continue;
                 }
             }
 
-
-            //Error here fix it
-
-
-            System.out.println(spots[x][0] + " " + spots[x][1]);
             vars.panelButtons[spots[x][0]][spots[x][1]].setIcon(sprites.spotDot);
-
         }
 
     }

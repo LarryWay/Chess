@@ -1,7 +1,7 @@
 package ChessPieces;
 import java.util.LinkedList;
 
-public class Knight extends BasePiece implements DefaultMethods{
+public class Knight extends BasePiece{
 
 
     public Knight(boolean isWhite, int xPos, int yPos, boolean[][] boolBoard) {
@@ -37,8 +37,6 @@ public class Knight extends BasePiece implements DefaultMethods{
         int returnValLength = 0;
         LinkedList<Integer> list= new LinkedList<>();
 
-        //create algorithm to calculate predicted spots for knight
-
         for(int x = -1 ; x <= 1 ; x += 2){
 
             for(int y = 1 ; y >= -1 ; y -= 2){
@@ -72,14 +70,8 @@ public class Knight extends BasePiece implements DefaultMethods{
             }
         }
 
-        returnVal = new int[returnValLength][2];
 
-        for(int x = 0 ; x < list.size() / 2; x++){
-            returnVal[x][0] = list.get(x * 2);
-            returnVal[x][1] = list.get(x * 2 + 1);
-        }
-
-        return returnVal;
+        return convertLinkedList(list);
     }
 
 

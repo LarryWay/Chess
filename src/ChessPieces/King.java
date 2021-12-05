@@ -1,7 +1,7 @@
 package ChessPieces;
 import java.util.LinkedList;
 
-public class King extends BasePiece implements DefaultMethods{
+public class King extends BasePiece{
 
 
     public King(boolean isWhite, int xPos, int yPos, boolean[][] boolBoard){
@@ -51,15 +51,8 @@ public class King extends BasePiece implements DefaultMethods{
                 }
             }
         }
-        returnVal = new int[list.size()][2];
-        for(int x = 0 ; x < list.size() / 2; x++){
-            returnVal[x][0] = (list.get(x * 2));
-            returnVal[x][1] = (list.get(x * 2 + 1));
-            System.out.println((int) list.get(x * 2) + " " + (int) list.get(x * 2 + 1));
-            System.out.println(returnVal[x][0] + " - " + returnVal[x][1]);
-        }
 
-        return returnVal;
+        return convertLinkedList(list);
     }
 
     @Override

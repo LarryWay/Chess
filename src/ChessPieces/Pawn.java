@@ -1,6 +1,6 @@
 package ChessPieces;
 
-public class Pawn extends BasePiece implements DefaultMethods{
+public class Pawn extends BasePiece{
 
 
     int pawnRuleInt = 1;

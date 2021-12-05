@@ -72,15 +72,12 @@ public class Board {
                     if (vars.boolBoard[pos[0]][pos[1]]){
                         vars.piecesList[pos[0]][pos[1]] = null;
                         vars.boolBoard[pos[0]][pos[1]] = false;
-                        System.out.println("doing something");
                     }
 
                     vars.piecesList[vars.selectedPiecePos[0]][vars.selectedPiecePos[1]] = null;
 
-
                     vars.piecesList[pos[0]][pos[1]] = vars.selectedPiece;
-                    vars.selectedPiece = null;
-                    vars.selectedPiecePos = null;
+                    vars.selectedPiece = null; vars.selectedPiecePos = null;
                     clearSelectSpots();
                     update();
 
@@ -164,7 +161,10 @@ public class Board {
         vars.piecesList[0][5] = new TypePiece(new Bishop(false,7,2, vars.boolBoard), vars, sprites);
         vars.piecesList[0][4] = new TypePiece(new King(false, 0, 4, vars.boolBoard), vars, sprites);
         vars.piecesList[7][4] = new TypePiece(new King(true, 7, 4, vars.boolBoard), vars, sprites);
-
+        vars.piecesList[0][0] = new TypePiece(new Rook(false, 0, 0, vars.boolBoard), vars, sprites);
+        vars.piecesList[0][7] = new TypePiece(new Rook(false, 0, 7, vars.boolBoard), vars, sprites);
+        vars.piecesList[7][0] = new TypePiece(new Rook(true, 7, 0, vars.boolBoard), vars, sprites);
+        vars.piecesList[7][7] = new TypePiece(new Rook(true, 7, 7, vars.boolBoard), vars, sprites);
     }
 
 

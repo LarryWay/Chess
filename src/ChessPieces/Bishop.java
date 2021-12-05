@@ -1,7 +1,7 @@
 package ChessPieces;
 import java.util.LinkedList;
 
-public class Bishop extends BasePiece implements DefaultMethods{
+public class Bishop extends BasePiece{
 
 
 
@@ -68,15 +68,9 @@ public class Bishop extends BasePiece implements DefaultMethods{
 
         System.out.println(list.size());
 
-        returnVal = new int[returnValLength][2];
-
-        for(int x = 0 ; x < list.size() / 2; x++){
-            returnVal[x][0] = list.get(x * 2);
-            returnVal[x][1] = list.get(x * 2 + 1);
-        }
 
 
-        return returnVal;
+        return convertLinkedList(list);
     }
 
     @Override

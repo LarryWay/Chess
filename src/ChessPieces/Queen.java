@@ -1,6 +1,6 @@
 package ChessPieces;
 
-public class Queen extends BasePiece implements DefaultMethods{
+public class Queen extends BasePiece{
     public Queen(boolean isWhite, int xPos, int yPos, boolean[][] boolBoard) {
         super(isWhite);
         super.xPos = xPos;
@@ -26,6 +26,13 @@ public class Queen extends BasePiece implements DefaultMethods{
 
     @Override
     public int[][] availableEmptySpots() {
+
+        //Use Rook Predict
+        //Use Bishop Predict
+        //The, combine the two
+        //EZ
+
+
         return new int[0][];
     }
 
