@@ -1,4 +1,5 @@
 package ChessPieces;
+import java.util.LinkedList;
 
 public class Queen extends BasePiece{
     public Queen(boolean isWhite, int xPos, int yPos, boolean[][] boolBoard) {
@@ -26,14 +27,27 @@ public class Queen extends BasePiece{
 
     @Override
     public int[][] availableEmptySpots() {
-
-        //Use Rook Predict
-        //Use Bishop Predict
-        //The, combine the two
-        //EZ
+        LinkedList<Integer> list = new LinkedList<>();
 
 
-        return new int[0][];
+        Rook rookTemp = new Rook(isWhite, xPos, yPos, boolBoard);
+        Bishop bishopTemp = new Bishop(isWhite, xPos, yPos, boolBoard);
+
+        int[][] rookPredict = rookTemp.availableMoves();
+        int[][] bishopPredict = bishopTemp.availableMoves();
+
+        for(int x = 0 ; x < rookPredict.length ; x++){
+            list.add(rookPredict[x][0]);
+            list.add(rookPredict[x][1]);
+        }
+
+        for(int x = 0 ; x < bishopPredict.length ; x++){
+            list.add(bishopPredict[x][0]);
+            list.add(bishopPredict[x][1]);
+        }
+
+
+        return convertLinkedList(list);
     }
 
     @Override
@@ -43,6 +57,6 @@ public class Queen extends BasePiece{
 
     @Override
     public int[][] availableMoves() {
-        return new int[0][];
+        return availableEmptySpots();
     }
 }

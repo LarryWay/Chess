@@ -15,6 +15,8 @@ public class Vars {
     TypePiece selectedPiece;
     int[] selectedPiecePos;
 
+    int turn = 0;
+
 
 
     final int SPOT_SIZE = 90;

@@ -165,6 +165,11 @@ public class Board {
         vars.piecesList[0][7] = new TypePiece(new Rook(false, 0, 7, vars.boolBoard), vars, sprites);
         vars.piecesList[7][0] = new TypePiece(new Rook(true, 7, 0, vars.boolBoard), vars, sprites);
         vars.piecesList[7][7] = new TypePiece(new Rook(true, 7, 7, vars.boolBoard), vars, sprites);
+        vars.piecesList[0][3] = new TypePiece(new Queen(false,0,3,vars.boolBoard), vars, sprites);
+        vars.piecesList[7][3] = new TypePiece(new Queen(true,7,3,vars.boolBoard), vars, sprites);
+
+
+
     }
 
 

@@ -40,16 +40,25 @@ public class TypePiece {
 
     public void displayAvailableSpots(){
         int[][] spots = value.availableMoves();
+        int sideInt = isWhite ? 0 : 1;
 
-        for(int x = 0 ; x < spots.length ; x++){
-            if (vars.boolBoard[spots[x][0]][spots[x][1]]){
-                if(vars.piecesList[spots[x][0]][spots[x][1]].isWhite == isWhite){
-                    continue;
+        if(vars.turn % 2 == sideInt){
+
+            for(int x = 0 ; x < spots.length ; x++){
+                if (vars.boolBoard[spots[x][0]][spots[x][1]]){
+                    if(vars.piecesList[spots[x][0]][spots[x][1]].isWhite == isWhite){
+                        continue;
+                    }
                 }
+
+                vars.panelButtons[spots[x][0]][spots[x][1]].setIcon(sprites.spotDot);
             }
 
-            vars.panelButtons[spots[x][0]][spots[x][1]].setIcon(sprites.spotDot);
+            vars.turn++;
+        }else{
+            System.out.println("Not your turn");
         }
+
 
     }
 
