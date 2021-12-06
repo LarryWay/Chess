@@ -37,6 +37,10 @@ public class TypePiece {
 
     }
 
+    public void updatePawnInt(){
+        value.pawnRuleInt = 0;
+    }
+
 
     public void displayAvailableSpots(){
         int[][] spots = value.availableMoves();
@@ -50,11 +54,9 @@ public class TypePiece {
                         continue;
                     }
                 }
-
                 vars.panelButtons[spots[x][0]][spots[x][1]].setIcon(sprites.spotDot);
             }
 
-            vars.turn++;
         }else{
             System.out.println("Not your turn");
         }

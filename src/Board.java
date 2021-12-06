@@ -76,8 +76,11 @@ public class Board {
 
                     vars.piecesList[vars.selectedPiecePos[0]][vars.selectedPiecePos[1]] = null;
 
+                    vars.selectedPiece.updatePawnInt();
+
                     vars.piecesList[pos[0]][pos[1]] = vars.selectedPiece;
                     vars.selectedPiece = null; vars.selectedPiecePos = null;
+                    vars.turn++;
                     clearSelectSpots();
                     update();
 

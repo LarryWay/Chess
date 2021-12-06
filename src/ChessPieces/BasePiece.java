@@ -12,6 +12,7 @@ public abstract class BasePiece implements DefaultMethods{
     public int xPos;
     public int yPos;
     boolean[][] boolBoard;
+    public int pawnRuleInt = 1;
 
     public BasePiece(boolean isWhite){
         this.isWhite = isWhite;

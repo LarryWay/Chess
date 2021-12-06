@@ -3,9 +3,6 @@ package ChessPieces;
 public class Pawn extends BasePiece{
 
 
-    int pawnRuleInt = 1;
-
-
     public Pawn(boolean isWhite, int xPos, int yPos, boolean[][] boolBoard){
         super(isWhite);
         super.xPos = xPos;
@@ -53,8 +50,6 @@ public class Pawn extends BasePiece{
             returnVal[x][0] = xPos + (sideInt * x) + sideInt;
             returnVal[x][1] = yPos;
         }
-
-        pawnRuleInt = 0;
 
         return returnVal;
     }
