@@ -7,6 +7,7 @@ public class Queen extends BasePiece{
         super.xPos = xPos;
         super.yPos = yPos;
         super.boolBoard = boolBoard;
+        pieceName = "Queen";
         assignPosition(boolBoard);
         assignSprite();
     }

@@ -9,6 +9,7 @@ public class Knight extends BasePiece{
         super.xPos = xPos;
         super.yPos = yPos;
         super.boolBoard = boolBoard;
+        pieceName = "Knight";
         assignPosition(boolBoard);
         assignSprite();
 

@@ -9,6 +9,7 @@ public class King extends BasePiece{
         super.xPos = xPos;
         super.yPos = yPos;
         super.boolBoard = boolBoard;
+        pieceName = "King";
         assignPosition(boolBoard);
         assignSprite();
     }

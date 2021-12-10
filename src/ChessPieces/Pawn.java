@@ -8,6 +8,7 @@ public class Pawn extends BasePiece{
         super.xPos = xPos;
         super.yPos = yPos;
         super.boolBoard = boolBoard;
+        pieceName = "Pawn";
         assignPosition(boolBoard);
         assignSprite();
 

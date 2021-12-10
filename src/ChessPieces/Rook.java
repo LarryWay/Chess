@@ -8,6 +8,7 @@ public class Rook extends BasePiece {
         super.xPos = xPos;
         super.yPos = yPos;
         super.boolBoard = boolBoard;
+        pieceName = "Rook";
         assignPosition(boolBoard);
         assignSprite();
     }

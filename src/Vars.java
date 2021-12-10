@@ -22,6 +22,9 @@ public class Vars {
     final int SPOT_SIZE = 90;
     final int BOARD_SIZE = SPOT_SIZE * 8;
 
+    final int CONSOLE_SIZE = 300;
+    final int TURN_PANEL_SIZE = 20;
+
 
 
 

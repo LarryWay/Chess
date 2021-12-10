@@ -10,6 +10,7 @@ public class Bishop extends BasePiece{
         super.xPos = xPos;
         super.yPos = yPos;
         super.boolBoard = boolBoard;
+        pieceName = "Bishop";
         assignPosition(boolBoard);
         assignSprite();
 

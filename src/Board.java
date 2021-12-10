@@ -4,22 +4,25 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Objects;
 
 public class Board {
 
     Sprites sprites = new Sprites();
     Vars vars;
-    JFrame frame;
+    JPanel panel;
+    Console console;
 
 
-    public Board(JFrame frame, Vars vars){
-        this.frame = frame;
+    public Board(JPanel panel, Vars vars){
+        this.panel = panel;
         this.vars = vars;
+        this.panel.setBounds(0, vars.TURN_PANEL_SIZE, vars.BOARD_SIZE, vars.BOARD_SIZE + 30);
+        this.panel.setLayout(null);
+
         setBoardSquares();
         placingBoardPieces();
         addPanelsToJFrame();
-        //setUpPieces();
-        update();
 
     }
 
@@ -61,9 +64,7 @@ public class Board {
                 int[] pos = getPosClicked(button);
                 JButton button = vars.panelButtons[pos[0]][pos[1]];
 
-
                 if(button.getIcon() == null){
-                    System.out.println("Not available spot");
 
                 }else if(button.getIcon() == sprites.spotDot){
                     TypePiece temp = vars.piecesList[pos[0]][pos[1]];
@@ -81,6 +82,9 @@ public class Board {
                     vars.piecesList[pos[0]][pos[1]] = vars.selectedPiece;
                     vars.selectedPiece = null; vars.selectedPiecePos = null;
                     vars.turn++;
+
+                    console.displayPlayerTurn();
+
                     clearSelectSpots();
                     update();
 
@@ -114,7 +118,7 @@ public class Board {
 
         for(int x = 0 ; x < vars.boardPanels.length ; x++){
             for(int y = 0 ; y < vars.boardPanels.length ; y++){
-                frame.getContentPane().add(vars.boardPanels[x][y]);
+                panel.add(vars.boardPanels[x][y]);
                 vars.boardPanels[x][y].setBounds(y * vars.SPOT_SIZE, x * vars.SPOT_SIZE , vars.SPOT_SIZE, vars.SPOT_SIZE);
             }
         }
@@ -171,7 +175,29 @@ public class Board {
         vars.piecesList[0][3] = new TypePiece(new Queen(false,0,3,vars.boolBoard), vars, sprites);
         vars.piecesList[7][3] = new TypePiece(new Queen(true,7,3,vars.boolBoard), vars, sprites);
 
+        update();
 
+    }
+
+    public void resetBoard(){
+
+        vars.turn = 0;
+
+        for(int x = 0 ; x < vars.piecesList.length ; x++){
+            for(int y = 0; y < vars.piecesList.length ; y++){
+
+                vars.piecesList[x][y] = null;
+
+            }
+        }
+
+        placingBoardPieces();
+        update();
+        clearSelectSpots();
+    }
+
+    public void assignConsole(Console console){
+        this.console = console;
 
     }
 

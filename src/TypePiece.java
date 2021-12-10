@@ -11,6 +11,8 @@ public class TypePiece {
     boolean hasSprite = false;
     boolean isWhite;
 
+    public String consoleMessage = "";
+
     public TypePiece(BasePiece obj, Vars vars, Sprites sprites){
         this.value = obj;
         this.vars = vars;
@@ -29,12 +31,6 @@ public class TypePiece {
 
         value.xPos = x;
         value.yPos = y;
-    }
-
-    public int[][] availableSpots(){
-
-        return value.availableMoves();
-
     }
 
     public void updatePawnInt(){
@@ -58,7 +54,7 @@ public class TypePiece {
             }
 
         }else{
-            System.out.println("Not your turn");
+            consoleMessage = "Not your turn yet";
         }
 
 
